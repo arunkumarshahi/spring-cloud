@@ -40,8 +40,9 @@ public class CurrencyConverterController {
 @GetMapping("/currency-converter-feign/from/{from}/to/{to}/quantity/{quantity}")
 public CurrencyValueBean getCurrencyValueByFeign(@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity){
 CurrencyValueBean currencyValueBean=currencyExchangeServiceProxy.retrieveCurrencyValue(from, to);
-log.info(currencyValueBean.getFromCurrency());
+log.info("currencyValueBean received in currency converter :::: {}",currencyValueBean);
 currencyValueBean.setQuantity(quantity);
+    log.info("currencyValueBean received in currency converter after quantity calculation:::: {}",currencyValueBean);
 return currencyValueBean;
 }
 }
