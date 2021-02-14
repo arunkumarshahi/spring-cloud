@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: MTLSServer
+---
+server:
+  port: 9002
+  ssl:
+    enabled: true
+    client-auth: need
+    key-store: classpath:MTLSServer.jks
+    key-store-password: server
+    key-alias: MTLSServer
+    key-store-type: JKS
+    key-store-provider: SUN
+    trust-store: classpath:MTLSServer.jks
+    trust-store-password: server
+    trust-store-type: JKS
